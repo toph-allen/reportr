@@ -8,7 +8,7 @@
 
 # Big and oft-changed directories
 data/
-inst/rawdata/
+inst/exports/
 inst/knitr*
 inst/misc/
 inst/cache/
