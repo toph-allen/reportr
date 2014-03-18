@@ -1,0 +1,54 @@
+# R system files
+.Rhistory
+.RData*
+.Rapp.history
+
+# Example code in package build process
+*-Ex.R
+
+# Big and oft-changed directories
+data/
+inst/rawdata/
+inst/knitr*
+inst/misc/
+inst/cache/
+inst/out/
+inst/figures/
+
+# LaTeX
+*.acn
+*.acr
+*.alg
+*.aux
+*.bbl
+*.blg
+*.dvi
+*.fdb_latexmk
+*.glg
+*.glo
+*.gls
+*.idx
+*.ilg
+*.ind
+*.ist
+*.lof
+*.log
+*.lot
+*.maf
+*.mtc
+*.mtc0
+*.nav
+*.nlo
+*.out
+*.pdfsync
+*.ps
+*.snm
+*.synctex.gz
+*.toc
+*.vrb
+*.xdy
+*.tdo
+
+# Misc
+*.pdf
+.Rproj.user
