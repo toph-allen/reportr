@@ -1,7 +1,7 @@
 require(lubridate)
 require(ggplot2)
 
-report <- read.csv("inst/exports/reporter-export-2014-03-18-10-01.csv", stringsAsFactors = FALSE)
+report <- read.csv("inst/exports/reporter-export-2014-04-04-15-42.csv", stringsAsFactors = FALSE)
 
 gmtformat <- "%Y-%m-%dT%H:%M:%SZ"
 report$posixtime <- strptime(report$Timestamp.of.Report..GMT., format = gmtformat, tz = "GMT")
@@ -21,5 +21,14 @@ gghourhappy + stat_smooth() + geom_jitter(aes(color = How.happy.are.you.))
 
 library(splines) # From the ggplot2 website
 library(MASS)
-gghourhappy + stat_smooth(method = "lm", formula = y ~ ns(x,3)) +
-  geom_jitter()
+gghourhappy + stat_smooth(method = "lm", formula = y ~ ns(x,3)) + geom_jitter()
+
+
+ggdayhappy <- ggplot(data = report, mapping = aes(x = localtime, y = How.happy.are.you.))
+ggdayhappy + stat_quantile(method = "rqss") + geom_jitter()
+ggdayhappy + stat_quantile(method = "rqss", lambda = 5) + geom_jitter()
+ggdayhappy + stat_smooth() + geom_jitter(aes(color = How.happy.are.you.))
+
+library(splines) # From the ggplot2 website
+library(MASS)
+ggdayhappy + stat_smooth(method = "lm", formula = y ~ ns(x,3)) + geom_jitter()
